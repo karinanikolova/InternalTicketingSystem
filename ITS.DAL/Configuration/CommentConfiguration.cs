@@ -19,6 +19,8 @@ namespace ITS.DAL.Configuration
 				.WithMany(t => t.Comments)
 				.HasForeignKey(c => c.TicketId)
 				.OnDelete(DeleteBehavior.Restrict);
+
+			builder.HasData(DataSeed.Comments);
 		}
 	}
 }
