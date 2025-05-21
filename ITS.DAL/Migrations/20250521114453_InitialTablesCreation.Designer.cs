@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITS.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250519102657_InitialTablesCreation")]
+    [Migration("20250521114453_InitialTablesCreation")]
     partial class InitialTablesCreation
     {
         /// <inheritdoc />
@@ -66,12 +66,26 @@ namespace ITS.DAL.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("DepartmentId")
+                        .HasMaxLength(50)
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -107,6 +121,8 @@ namespace ITS.DAL.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -169,6 +185,24 @@ namespace ITS.DAL.Migrations
                     b.HasIndex("TicketId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("ITS.DAL.Data.Models.Department", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Department identifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasComment("Department name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("ITS.DAL.Data.Models.Ticket", b =>
@@ -332,6 +366,17 @@ namespace ITS.DAL.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ITS.DAL.Data.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("ITS.DAL.Data.Models.Department", "Department")
+                        .WithMany("Employees")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+                });
+
             modelBuilder.Entity("ITS.DAL.Data.Models.Comment", b =>
                 {
                     b.HasOne("ITS.DAL.Data.Models.ApplicationUser", "Creator")
@@ -432,6 +477,11 @@ namespace ITS.DAL.Migrations
             modelBuilder.Entity("ITS.DAL.Data.Models.Category", b =>
                 {
                     b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("ITS.DAL.Data.Models.Department", b =>
+                {
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("ITS.DAL.Data.Models.Ticket", b =>
