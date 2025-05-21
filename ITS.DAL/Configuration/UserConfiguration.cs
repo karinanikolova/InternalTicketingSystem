@@ -9,6 +9,8 @@ namespace ITS.DAL.Configuration
 		public void Configure(EntityTypeBuilder<ApplicationUser> builder)
 		{
 			builder.ToTable("Users");
+
+			builder.HasData(DataSeed.Users);
 		}
 	}
 }
