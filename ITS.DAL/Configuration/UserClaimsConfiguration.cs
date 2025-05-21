@@ -9,6 +9,8 @@ namespace ITS.DAL.Configuration
 		public void Configure(EntityTypeBuilder<IdentityUserClaim<Guid>> builder)
 		{
 			builder.ToTable("UserClaims");
+
+			builder.HasData(DataSeed.UserClaims);
 		}
 	}
 }
