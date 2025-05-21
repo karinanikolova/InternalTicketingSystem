@@ -25,6 +25,8 @@ namespace ITS.DAL.Configuration
 				.WithMany(c => c.Tickets)
 				.HasForeignKey(t => t.CategoryId)
 				.OnDelete(DeleteBehavior.Restrict);
+
+			builder.HasData(DataSeed.Tickets);
 		}
 	}
 }
