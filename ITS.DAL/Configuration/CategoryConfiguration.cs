@@ -8,7 +8,7 @@ namespace ITS.DAL.Configuration
 	{
 		public void Configure(EntityTypeBuilder<Category> builder)
 		{
-
+			builder.HasData(DataSeed.Categories);
 		}
 	}
 }
