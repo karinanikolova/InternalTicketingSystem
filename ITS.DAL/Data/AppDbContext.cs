@@ -1,4 +1,4 @@
-﻿using ITS.DAL.Configuration;
+﻿using ITS.DAL.Data.Configuration;
 using ITS.DAL.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
