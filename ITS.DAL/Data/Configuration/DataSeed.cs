@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using ITS.DAL.Enums;
 using static ITS.DAL.Constants.CustomClaims;
 
-namespace ITS.DAL.Configuration
+namespace ITS.DAL.Data.Configuration
 {
 	public static class DataSeed
 	{
@@ -148,7 +148,7 @@ namespace ITS.DAL.Configuration
 			{
 				new()
 				{
-					Id =AdminRoleId,
+					Id = AdminRoleId,
 					Name = "Administrator",
 					NormalizedName = "ADMINISTRATOR"
 				},

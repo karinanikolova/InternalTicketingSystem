@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ITS.DAL.Configuration
+namespace ITS.DAL.Data.Configuration
 {
 	internal class UserClaimsConfiguration : IEntityTypeConfiguration<IdentityUserClaim<Guid>>
 	{
