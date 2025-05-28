@@ -12,8 +12,17 @@ namespace ITS.DAL.Data.Configuration
 				.IsRequired()
 				.HasMaxLength(50);
 
+			builder.Property(u => u.NormalizedUserName)
+				.IsRequired()
+				.HasMaxLength(50);
+
 			builder.Property(u => u.Email)
-				.IsRequired();
+				.IsRequired()
+				.HasMaxLength(50);
+
+			builder.Property(u => u.NormalizedEmail)
+				.IsRequired()
+				.HasMaxLength(50);
 
 			builder.Property(u => u.PasswordHash)
 				.IsRequired();
