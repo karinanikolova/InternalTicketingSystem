@@ -27,10 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ITS.Application\ITS.Core.csproj" />
     <ProjectReference Include="..\ITS.DAL\ITS.DAL.csproj" />
   </ItemGroup>
