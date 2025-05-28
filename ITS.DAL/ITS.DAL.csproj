@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Configuration\UserClaimsConfiguration.cs" />
+    <None Include="Data\Configuration\UserClaimsConfiguration.cs" />
   </ItemGroup>
 
   <ItemGroup>
