@@ -1,51 +1,92 @@
+using ITS.Core.Services;
+using ITS.Core.Services.Contracts;
 using ITS.DAL.Data;
 using ITS.DAL.Data.Models;
+using ITS.DAL.Data.Utilities.Contracts;
+using ITS.DAL.Data.Utilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Web;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ITSApi
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddDbContext<AppDbContext>(options =>
+			// Add services to the container.
+			builder.Services.AddDbContext<AppDbContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+			builder.Services.AddScoped<IRepository, Repository>();
+
+			builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => 
+			{
+				options.User.RequireUniqueEmail = true;
+				options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+
+				options.SignIn.RequireConfirmedAccount = false;
+
+				options.Password.RequiredLength = 6;
+				options.Password.RequireNonAlphanumeric = true;
+				options.Password.RequireDigit = true;
+				options.Password.RequireLowercase = true;
+				options.Password.RequireUppercase = true;
+			})
 				.AddEntityFrameworkStores<AppDbContext>()
 				.AddDefaultTokenProviders();
 
-			builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+			builder.Services.AddAuthentication(options =>
+			{
+				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+			})
+			.AddJwtBearer(options =>
+			{
+				options.TokenValidationParameters = new TokenValidationParameters
+				{
+					ValidateIssuer = true,
+					ValidateAudience = true,
+					ValidateLifetime = true,
+					ValidateIssuerSigningKey = true,
+					ValidIssuer = builder.Configuration["Jwt:Issuer"],
+					ValidAudience = builder.Configuration["Jwt:Audience"],
+					IssuerSigningKey = new SymmetricSecurityKey(
+						Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+				};
+			});
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+			builder.Services.AddAuthorization();
 
-            var app = builder.Build();
+			builder.Services.AddControllers();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+			builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
-            app.UseHttpsRedirection();
+			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+			builder.Services.AddEndpointsApiExplorer();
+			builder.Services.AddSwaggerGen();
 
-            app.UseAuthorization();
+			var app = builder.Build();
 
+			// Configure the HTTP request pipeline.
+			if (app.Environment.IsDevelopment())
+			{
+				app.UseSwagger();
+				app.UseSwaggerUI();
+			}
 
-            app.MapControllers();
+			app.UseHttpsRedirection();
 
-            app.Run();
-        }
-    }
+			app.UseAuthentication();
+			app.UseAuthorization();
+
+			app.MapControllers();
+
+			app.Run();
+		}
+	}
 }
