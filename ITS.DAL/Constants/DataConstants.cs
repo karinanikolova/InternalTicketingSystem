@@ -31,11 +31,19 @@
 
 		public static class ApplicationUser
 		{
+			public const int UserNameMinLength = 3;
+			public const int UserNameMaxLength = 50;
+
 			public const int UserFirstNameMinLength = 1;
 			public const int UserFirstNameMaxLength = 50;
 
 			public const int UserLastNameMinLength = 1;
 			public const int UserLastNameMaxLength = 50;
+
+			public const int UserPasswordMinLength = 6;
+			public const int UserPasswordMaxLength = 100;
+
+			public const int UserEmailMaxLength = 50;
 		}
 	}
 }
