@@ -12,7 +12,7 @@ namespace ITS.Api.Configuration
 		{
 			var claims = new List<Claim>()
 			{
-				new (ClaimTypes.NameIdentifier, user.Id.ToString()),
+				new (JwtRegisteredClaimNames.Sub, user.Id.ToString()),
 				new (JwtRegisteredClaimNames.Name, user.FirstName + " " + user.LastName),
 				new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
 			};
@@ -24,7 +24,7 @@ namespace ITS.Api.Configuration
 
 			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
 			var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-			var tokenExpiration = rememberMe ? DateTime.Now.AddDays(7) : DateTime.Now.AddHours(1);
+			var tokenExpiration = rememberMe ? DateTime.UtcNow.AddDays(7) : DateTime.UtcNow.AddHours(1);
 
 			var token = new JwtSecurityToken(
 				issuer: configuration["Jwt:Issuer"],
