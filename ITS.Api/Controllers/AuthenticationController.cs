@@ -2,6 +2,7 @@
 using ITS.Core.Models.Authentication;
 using ITS.Core.Services.Contracts;
 using ITS.DAL.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,7 @@ namespace ITS.Api.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class AuthenticationController : ControllerBase
+	public class AuthenticationController : BaseApiController
 	{
 		private readonly IAuthenticationService _authService;
 		private readonly UserManager<ApplicationUser> _userManager;
@@ -24,6 +25,7 @@ namespace ITS.Api.Controllers
 			_configuration = configuration;
 		}
 
+		[Authorize(Roles = "Admin")]
 		[HttpPost("register")]
 		public async Task<IActionResult> Register(RegisterDto registerDto)
 		{
@@ -62,6 +64,7 @@ namespace ITS.Api.Controllers
 			}
 		}
 
+		[AllowAnonymous]
 		[HttpPost("login")]
 		public async Task<IActionResult> Login(LoginDto loginDto)
 		{
