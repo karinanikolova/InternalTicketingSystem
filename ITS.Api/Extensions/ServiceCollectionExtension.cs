@@ -72,6 +72,7 @@ namespace Microsoft.Extensions.DependencyInjection
 		public static IServiceCollection AddApplicationServices(this IServiceCollection services)
 		{
 			services.AddScoped<IAuthenticationService, AuthenticationService>();
+			services.AddScoped<ITicketService, TicketService>();
 
 			return services;
 		}
