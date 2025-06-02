@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using ITS.DAL.Enums;
 using static ITS.DAL.Constants.CustomClaims;
+using static ITS.DAL.Constants.CustomRoles;
 
 namespace ITS.DAL.Data.Configuration
 {
@@ -149,14 +150,14 @@ namespace ITS.DAL.Data.Configuration
 				new()
 				{
 					Id = AdminRoleId,
-					Name = "Administrator",
-					NormalizedName = "ADMINISTRATOR"
+					Name = AdminRole,
+					NormalizedName = AdminRole.ToUpper()
 				},
 				new()
 				{
 					Id = EmployeeRoleId,
-					Name = "Employee",
-					NormalizedName = "EMPLOYEE"
+					Name = EmployeeRole,
+					NormalizedName = EmployeeRole.ToUpper()
 				}
 			});
 		}
@@ -169,6 +170,36 @@ namespace ITS.DAL.Data.Configuration
 				{
 					UserId = AdminUserId,
 					RoleId = AdminRoleId
+				},
+				new()
+				{
+					UserId = SamJId,
+					RoleId = EmployeeRoleId
+				},
+				new()
+				{
+					UserId = MLevinId,
+					RoleId = EmployeeRoleId
+				},
+				new()
+				{
+					UserId = MaryCId,
+					RoleId = EmployeeRoleId
+				},
+				new()
+				{
+					UserId = DarcyAId,
+					RoleId = EmployeeRoleId
+				},
+				new()
+				{
+					UserId = SandyBId,
+					RoleId = EmployeeRoleId
+				},
+				new()
+				{
+					UserId = StanMId,
+					RoleId = EmployeeRoleId
 				}
 			});
 		}
