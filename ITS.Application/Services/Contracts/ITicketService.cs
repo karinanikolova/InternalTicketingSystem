@@ -4,8 +4,10 @@ namespace ITS.Core.Services.Contracts
 {
 	public interface ITicketService
 	{
-		Task<IEnumerable<TicketDto>> GetAllTicketsAsync();
+		Task<IEnumerable<TicketViewDto>> GetAllTicketsAsync(string userRole, bool isSupportAgent, string userId);
 
-		Task<TicketDto?> GetTicketByIdAsync(Guid ticketId);
+		Task<TicketViewDto?> GetTicketByIdAsync(Guid ticketId);
+
+		Task CreateTicketAsync(TicketCreateDto ticketFormDto);
 	}
 }
