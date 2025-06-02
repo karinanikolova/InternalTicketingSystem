@@ -1,5 +1,7 @@
 ﻿using ITS.Core.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ITS.Api.Controllers
 {
@@ -17,7 +19,11 @@ namespace ITS.Api.Controllers
 		[HttpGet]
 		public async Task<IActionResult> GetAllTickets()
 		{
-			var tickets = await _ticketService.GetAllTicketsAsync();
+			var userRole = User.FindUserRole();
+			var isSupportAgent = User.IsSupportAgent();
+			var userId = User.UserId();
+
+			var tickets = await _ticketService.GetAllTicketsAsync(userRole, isSupportAgent, userId);
 
 			if (tickets == null || !tickets.Any())
 			{
@@ -28,9 +34,14 @@ namespace ITS.Api.Controllers
 		}
 
 		[HttpGet("{ticketId}")]
-		public async Task<IActionResult> GetTicketById(Guid ticketId)
+		public async Task<IActionResult> GetTicketById(string ticketId)
 		{
-			var ticket = await _ticketService.GetTicketByIdAsync(ticketId);
+			if (!Guid.TryParse(ticketId, out var parsedTicketId))
+			{
+				return BadRequest("Invalid ticket ID format.");
+			}
+
+			var ticket = await _ticketService.GetTicketByIdAsync(parsedTicketId);
 
 			if (ticket == null)
 			{
@@ -38,6 +49,12 @@ namespace ITS.Api.Controllers
 			}
 
 			return Ok(ticket);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> CreateTicket()
+		{
+			return BadRequest("Create ticket functionality is not implemented yet.");
 		}
 	}
 }
