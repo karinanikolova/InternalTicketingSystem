@@ -7,5 +7,7 @@
 		public const string InvalidEmailMessage = "Invalid email address";
 
 		public const string FailedPasswordComparisonMessage = "The password and confirmation password do not match";
+
+		public const string RequiredFieldMessage = "The field {0} is required";
 	}
 }
