@@ -3,7 +3,7 @@ using ITS.DAL.Enums;
 
 namespace ITS.Core.Models.Ticket
 {
-	public class TicketDto
+	public class TicketViewDto
 	{
 		public Guid Id { get; set; }
 		public string Title { get; set; }
