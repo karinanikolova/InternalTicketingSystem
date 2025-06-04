@@ -1,13 +1,14 @@
 ﻿using ITS.Core.Services;
 using ITS.Core.Services.Contracts;
-using ITS.DAL.Data.Models;
-using ITS.DAL.Data.Utilities.Contracts;
-using ITS.DAL.Data.Utilities;
 using ITS.DAL.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
+using ITS.DAL.Data.Models;
+using ITS.DAL.Data.Utilities;
+using ITS.DAL.Data.Utilities.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -56,6 +57,9 @@ namespace Microsoft.Extensions.DependencyInjection
 			{
 				options.TokenValidationParameters = new TokenValidationParameters
 				{
+					NameClaimType = "sub",
+					RoleClaimType = "role",
+					
 					ValidateIssuer = true,
 					ValidateAudience = true,
 					ValidateLifetime = true,
@@ -65,10 +69,34 @@ namespace Microsoft.Extensions.DependencyInjection
 					IssuerSigningKey = new SymmetricSecurityKey(
 						Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
 				};
+
+				options.Events = new JwtBearerEvents
+				{
+					OnTokenValidated = context =>
+					{
+						var identity = context.Principal?.Identity as ClaimsIdentity;
+
+						if (identity != null && identity.IsAuthenticated)
+						{
+							// Creating a new identity with the desired claim type mappings
+							var newIdentity = new ClaimsIdentity(
+								identity.Claims,
+								identity.AuthenticationType,
+								nameType: "sub",
+								roleType: "role"
+							);
+
+							context.Principal = new ClaimsPrincipal(newIdentity);
+						}
+
+						return Task.CompletedTask;
+					}
+				};
 			});
 
 			return services;
 		}
+
 		public static IServiceCollection AddApplicationServices(this IServiceCollection services)
 		{
 			services.AddScoped<IAuthenticationService, AuthenticationService>();
