@@ -5,11 +5,15 @@ namespace System.Security.Claims
 {
 	public static class ClaimsPrincipalExtensions
 	{
-		public static string UserId(this ClaimsPrincipal user)
-			=> user.FindFirstValue(ClaimTypes.NameIdentifier)!;
+		public static Guid? UserId(this ClaimsPrincipal user)
+		{
+			var userIdClaim = user.FindFirstValue(ClaimTypes.NameIdentifier) ?? user.FindFirstValue("sub");
+
+			return Guid.TryParse(userIdClaim, out Guid result) ? result : null;
+		}
 
 		public static string FindUserRole(this ClaimsPrincipal user)
-			=> user.FindFirstValue(ClaimTypes.Role)!;
+			=> user.FindFirstValue(ClaimTypes.Role) ?? user.FindFirstValue("role");
 
 		public static bool IsAdmin(this ClaimsPrincipal user)
 			=> user.IsInRole(AdminRole);
