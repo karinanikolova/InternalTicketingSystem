@@ -25,7 +25,7 @@ namespace ITS.Api.Controllers
 			_configuration = configuration;
 		}
 
-		[Authorize(Roles = "Admin")]
+		[Authorize(Roles = "Administrator")]
 		[HttpPost("register")]
 		public async Task<IActionResult> Register(RegisterDto registerDto)
 		{
