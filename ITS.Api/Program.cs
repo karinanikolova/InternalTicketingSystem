@@ -1,11 +1,17 @@
+using System.IdentityModel.Tokens.Jwt;
+
 namespace ITSApi
 {
 	public class Program
 	{
 		public static void Main(string[] args)
 		{
+			// Disabling automatic claim type mapping before DI/config is built
+			JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+
 			var builder = WebApplication.CreateBuilder(args);
 
+			// Configuring services
 			builder.Services.AddApplicationDbContext(builder.Configuration);
 			builder.Services.AddApplicationIdentity(builder.Configuration);
 			builder.Services.AddApplicationAuthentication(builder.Configuration);
