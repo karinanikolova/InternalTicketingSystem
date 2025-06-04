@@ -3,5 +3,7 @@
 	public interface IAuthenticationService
 	{
 		Task<Guid?> GetDepartmentIdByNameAsync(string departmentName);
+
+		Task<Guid> GetAdminIdAsync();
 	}
 }
