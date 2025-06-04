@@ -17,7 +17,7 @@ namespace ITS.Core.Models.Ticket
 		[Required(ErrorMessage = RequiredFieldMessage)]
 		[Display(Name = "Ticket category")]
 		public Guid CategoryId { get; set; }
-		
+
 		public IEnumerable<Guid> Categories { get; set; } = new List<Guid>();
 
 		[Required(ErrorMessage = RequiredFieldMessage)]
@@ -33,6 +33,7 @@ namespace ITS.Core.Models.Ticket
 		public IEnumerable<int> Priorities { get; set; } = new List<int>();
 
 		[Display(Name = "Ticket due date")]
-		public string? DueDate { get; set; }
+		[DataType(DataType.Date)]
+		public DateTime? DueDate { get; set; }
 	}
 }
