@@ -1,8 +1,9 @@
 ﻿using ITS.Core.Models.Comment;
 using ITS.Core.Models.Ticket;
-using ITS.DAL.Data.Models;
 using ITS.Core.Services.Contracts;
+using ITS.DAL.Data.Models;
 using ITS.DAL.Data.Utilities.Contracts;
+using ITS.DAL.Enums;
 using Microsoft.EntityFrameworkCore;
 using static ITS.DAL.Constants.CustomRoles;
 
@@ -17,7 +18,7 @@ namespace ITS.Core.Services
 			_repository = repository;
 		}
 
-		public async Task<IEnumerable<TicketViewDto>> GetAllTicketsAsync(string userRole, bool isSupportAgent, string userId)
+		public async Task<IEnumerable<TicketViewDto>> GetAllTicketsAsync(string userRole, bool isSupportAgent, Guid? userId)
 		{
 			if (userRole == AdminRole)
 			{
@@ -51,7 +52,7 @@ namespace ITS.Core.Services
 			if (isSupportAgent)
 			{
 				return await _repository.AllReadOnly<Ticket>()
-					.Where(t => t.AssignedToUserId == Guid.Parse(userId))
+					.Where(t => t.AssignedToUserId == userId)
 					.Include(t => t.Comments)
 					.Select(t => new TicketViewDto()
 					{
@@ -79,7 +80,7 @@ namespace ITS.Core.Services
 			}
 
 			return await _repository.AllReadOnly<Ticket>()
-					.Where(t => t.CreatorId == Guid.Parse(userId))
+					.Where(t => t.CreatorId == userId)
 					.Include(t => t.Comments)
 					.Select(t => new TicketViewDto()
 					{
@@ -134,9 +135,29 @@ namespace ITS.Core.Services
 					})
 					.FirstOrDefaultAsync();
 
-		public async Task CreateTicketAsync(TicketCreateDto ticketFormDto)
+		public async Task CreateTicketAsync(TicketCreateDto ticketFormDto, Guid creatorId, Guid adminUserId)
 		{
-			throw new NotImplementedException();
+			var ticket = new Ticket()
+			{
+				Title = ticketFormDto.Title,
+				Description = ticketFormDto.Description,
+				CategoryId = ticketFormDto.CategoryId,
+				Status = (Status)ticketFormDto.StatusId,
+				Priority = (Priority)ticketFormDto.PriorityId,
+				CreatedOn = DateTime.UtcNow,
+				DueDate = ticketFormDto.DueDate, // Should probably rewrite according to the format used in the form
+				CreatorId = creatorId,
+				AssignedToUserId = adminUserId
+			};
+
+			await _repository.AddAsync<Ticket>(ticket);
+			await _repository.SaveChangesAsync();
 		}
+
+		public bool DoesStatusExist(int statusId)
+			=> Enum.IsDefined(typeof(Status), statusId);
+
+		public bool DoesPriorityExist(int priorityId)
+			=> Enum.IsDefined(typeof(Priority), priorityId);
 	}
 }
