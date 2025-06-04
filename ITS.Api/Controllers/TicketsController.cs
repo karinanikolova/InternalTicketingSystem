@@ -1,5 +1,5 @@
-﻿using ITS.Core.Services.Contracts;
-using Microsoft.AspNetCore.Authorization;
+﻿using ITS.Core.Models.Ticket;
+using ITS.Core.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -10,10 +10,12 @@ namespace ITS.Api.Controllers
 	public class TicketsController : BaseApiController
 	{
 		private readonly ITicketService _ticketService;
+		private readonly IAuthenticationService _authService;
 
-		public TicketsController(ITicketService ticketService)
+		public TicketsController(ITicketService ticketService, IAuthenticationService authService)
 		{
 			_ticketService = ticketService;
+			_authService = authService;
 		}
 
 		[HttpGet]
@@ -33,15 +35,10 @@ namespace ITS.Api.Controllers
 			return Ok(tickets);
 		}
 
-		[HttpGet("{ticketId}")]
-		public async Task<IActionResult> GetTicketById(string ticketId)
+		[HttpGet("{ticketId:guid}")]
+		public async Task<IActionResult> GetTicketById(Guid ticketId)
 		{
-			if (!Guid.TryParse(ticketId, out var parsedTicketId))
-			{
-				return BadRequest("Invalid ticket ID format.");
-			}
-
-			var ticket = await _ticketService.GetTicketByIdAsync(parsedTicketId);
+			var ticket = await _ticketService.GetTicketByIdAsync(ticketId);
 
 			if (ticket == null)
 			{
@@ -50,11 +47,36 @@ namespace ITS.Api.Controllers
 
 			return Ok(ticket);
 		}
-
+		
 		[HttpPost]
-		public async Task<IActionResult> CreateTicket()
+		public async Task<IActionResult> CreateTicket([FromBody] TicketCreateDto ticketDto)
 		{
-			return BadRequest("Create ticket functionality is not implemented yet.");
+			if (!_ticketService.DoesStatusExist(ticketDto.StatusId))
+			{
+				ModelState.AddModelError(nameof(ticketDto.StatusId), "Ticket status does not exist.");
+			}
+
+			if (!_ticketService.DoesPriorityExist(ticketDto.PriorityId))
+			{
+				ModelState.AddModelError(nameof(ticketDto.PriorityId), "Ticket priority does not exist.");
+			}
+
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+
+			var userId = User.UserId();
+			var adminUserId = await _authService.GetAdminIdAsync();
+
+			if (userId == null)
+			{
+				return Unauthorized("User is not authenticated or does not have the required permissions.");
+			}
+
+			await _ticketService.CreateTicketAsync(ticketDto, userId.Value, adminUserId);
+
+			return Ok("Ticket created successfully.");
 		}
 	}
 }
