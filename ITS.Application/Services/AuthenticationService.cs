@@ -1,6 +1,7 @@
 ﻿using ITS.Core.Services.Contracts;
 using ITS.DAL.Data.Models;
 using ITS.DAL.Data.Utilities.Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITS.Core.Services
 {
@@ -20,5 +21,11 @@ namespace ITS.Core.Services
 
 			return Task.FromResult(department?.Id);
 		}
+
+		public async Task<Guid> GetAdminIdAsync()
+			=> await _repository.AllReadOnly<ApplicationUser>()
+				.Where(u => u.UserName == "AdminUser")
+				.Select(u => u.Id)
+				.FirstAsync();
 	}
 }
