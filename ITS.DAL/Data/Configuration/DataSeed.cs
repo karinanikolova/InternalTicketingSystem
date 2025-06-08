@@ -1,36 +1,36 @@
 ﻿using ITS.DAL.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using ITS.DAL.Enums;
-using static ITS.DAL.Constants.CustomClaims;
-using static ITS.DAL.Constants.CustomRoles;
+using static ITS.DAL.Constants.AdminConstants;
+using static ITS.DAL.Constants.CustomRolesAndClaims;
 
 namespace ITS.DAL.Data.Configuration
 {
 	public static class DataSeed
 	{
-		private static readonly Guid EngineeringDeptId = Guid.NewGuid();
-		private static readonly Guid QaDeptId = Guid.NewGuid();
-		private static readonly Guid ItDeptId = Guid.NewGuid();
-		private static readonly Guid HrDeptId = Guid.NewGuid();
-		private static readonly Guid FacilitiesDeptId = Guid.NewGuid();
+		private static readonly Guid EngineeringDeptId = Guid.Parse("e84fad18-ed54-47cd-aeaf-4c94b513d8bc");
+		private static readonly Guid QaDeptId = Guid.Parse("cc6a4f78-4c15-41e3-ae61-a6420f6de8cd");
+		private static readonly Guid ItDeptId = Guid.Parse("2cd02069-2cb2-4b58-8cc5-58538f4480cb");
+		private static readonly Guid HrDeptId = Guid.Parse("0ee540ac-e651-45f5-97c7-a908df086e2d");
+		private static readonly Guid FacilitiesDeptId = Guid.Parse("c3f276a1-35a7-4b50-bfbc-373f706d5cd5");
 
-		private static readonly Guid SamJId = Guid.NewGuid();
-		private static readonly Guid MLevinId = Guid.NewGuid();
-		private static readonly Guid MaryCId = Guid.NewGuid();
-		private static readonly Guid DarcyAId = Guid.NewGuid();
-		private static readonly Guid SandyBId = Guid.NewGuid();
-		private static readonly Guid StanMId = Guid.NewGuid();
-		private static readonly Guid AdminUserId = Guid.NewGuid();
+		private static readonly Guid SamJId = Guid.Parse("b94e4389-b297-4f9c-8dbd-5ed1d9d0ee94");
+		private static readonly Guid MLevinId = Guid.Parse("98bd95e4-71a2-488a-a56d-12245dd7f291");
+		private static readonly Guid MaryCId = Guid.Parse("24ebeca2-8cda-4801-a113-725657e7b47a");
+		private static readonly Guid DarcyAId = Guid.Parse("b87a7720-d1f8-4160-8a3c-6c2922bb8946");
+		private static readonly Guid SandyBId = Guid.Parse("a4f4d3c9-eaf1-4708-9837-e9b4aeb53d7c");
+		private static readonly Guid StanMId = Guid.Parse("0480d7eb-c544-4058-8b07-c828104189af");
+		private static readonly Guid AdminUserId = Guid.Parse("291f114d-6be7-4af0-b73f-ee8690597885");
 
-		private static readonly Guid AdminRoleId = Guid.NewGuid();
-		private static readonly Guid EmployeeRoleId = Guid.NewGuid();
+		private static readonly Guid AdminRoleId = Guid.Parse("5f439325-7a78-4d47-8e5f-c58787c10b94");
+		private static readonly Guid EmployeeRoleId = Guid.Parse("d5553e44-17ed-4ce2-808f-8d5f02a4ad18");
 
-		private static readonly Guid HardwareCatId = Guid.NewGuid();
-		private static readonly Guid SoftwareCatId = Guid.NewGuid();
-		private static readonly Guid NetworkCatId = Guid.NewGuid();
-		private static readonly Guid SecurityCatId = Guid.NewGuid();
-		private static readonly Guid FacilitiesCatId = Guid.NewGuid();
-		private static readonly Guid HrCatId = Guid.NewGuid();
+		private static readonly Guid HardwareCatId = Guid.Parse("34afa6e3-d6d1-42b0-afc4-9a9b5edd278b");
+		private static readonly Guid SoftwareCatId = Guid.Parse("cfaff174-8b18-46f8-bcb3-87dd2ffec7ad");
+		private static readonly Guid NetworkCatId = Guid.Parse("9c9d0d44-2ab3-4912-8c04-2f2192ed80e1");
+		private static readonly Guid SecurityCatId = Guid.Parse("fe9fdc3f-7e82-47f8-a432-76ea5bbfd396");
+		private static readonly Guid FacilitiesCatId = Guid.Parse("c21d907c-a05f-4b7f-b4b2-e989dffb8d2a");
+		private static readonly Guid HrCatId = Guid.Parse("98d8e692-4707-475e-b870-92a37f881986");
 
 		public static readonly List<Department> Departments = new();
 
