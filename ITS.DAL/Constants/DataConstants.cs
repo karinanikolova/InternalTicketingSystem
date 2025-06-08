@@ -15,6 +15,12 @@
 
 			public const int DescriptionMinLength = 5;
 			public const int DescriptionMaxLength = 1000;
+
+			public const int TicketStatusMinValue = 0;
+			public const int TicketStatusMaxValue = 3;
+
+			public const int TicketPriorityMinValue = 0;
+			public const int TicketPriorityMaxValue = 2;
 		}
 
 		public static class Comment
