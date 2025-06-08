@@ -9,5 +9,9 @@
 		public const string FailedPasswordComparisonMessage = "The password and confirmation password do not match";
 
 		public const string RequiredFieldMessage = "The field is required";
+
+		public const string InvalidStatusMessage = "Please select a valid ticket status";
+
+		public const string InvalidPriorityMessage = "Please select a valid ticket priority";
 	}
 }
