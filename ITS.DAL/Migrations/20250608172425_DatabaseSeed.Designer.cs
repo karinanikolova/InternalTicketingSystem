@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITS.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250528154151_ModifiedUserTableDesign")]
-    partial class ModifiedUserTableDesign
+    [Migration("20250608172425_DatabaseSeed")]
+    partial class DatabaseSeed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,13 +55,13 @@ namespace ITS.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("22b3a385-dd4e-4d86-836e-2909f1add421"),
+                            Id = new Guid("5f439325-7a78-4d47-8e5f-c58787c10b94"),
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = new Guid("df6c1eef-5e87-448b-a123-68ef7ed568c1"),
+                            Id = new Guid("d5553e44-17ed-4ce2-808f-8d5f02a4ad18"),
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -155,10 +155,10 @@ namespace ITS.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f2310846-a216-40d2-bb35-fe7492b82718"),
+                            Id = new Guid("b94e4389-b297-4f9c-8dbd-5ed1d9d0ee94"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4505ec21-5c54-49d9-a1d4-2d6e31c74548",
-                            DepartmentId = new Guid("928c2995-b16b-40c8-b77d-dd18d8525f28"),
+                            ConcurrencyStamp = "5ad19fb3-52a5-4481-839d-8082218d9aaf",
+                            DepartmentId = new Guid("e84fad18-ed54-47cd-aeaf-4c94b513d8bc"),
                             Email = "samj@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Samuel",
@@ -166,17 +166,17 @@ namespace ITS.DAL.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SAMJ@MAIL.COM",
                             NormalizedUserName = "SAMJ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBVmijUKuvIh5wI+Ke8hkf0FlEtT5wESJrAWqEy5F0cVD2St8Y0dMwqOBaAQE7YKUg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGJNRYGaTJC6XLjVrXUYkKW15LtQPjYjcvVAg5Szzx7fvN/N7Ad0wTursMgP3cmbrQ==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "SamJ"
                         },
                         new
                         {
-                            Id = new Guid("c69f3217-12e3-45ce-b5f8-84ebf4fcd77f"),
+                            Id = new Guid("98bd95e4-71a2-488a-a56d-12245dd7f291"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b4d09310-46cb-4c17-bff4-7549a574d0e1",
-                            DepartmentId = new Guid("37a90661-82aa-44a5-b267-079d36832bdb"),
+                            ConcurrencyStamp = "4e0609e2-cc91-46ed-beb3-7f6bdc395f5a",
+                            DepartmentId = new Guid("cc6a4f78-4c15-41e3-ae61-a6420f6de8cd"),
                             Email = "mlevin@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Mark",
@@ -184,17 +184,17 @@ namespace ITS.DAL.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MLEVIN@MAIL.COM",
                             NormalizedUserName = "MLEVIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJBgyo5UfidFog+oskkL0MSM1RHFN+KubTUGqd+yy6xIZBt/3t1rFkNz1GEUNXoouA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ3MbPLWcpd5l1Qhm63T8hdDhvlyUBvrdU8ItuONCpmofyfeXM0dG9YJY5usN8AHzw==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "MLevin"
                         },
                         new
                         {
-                            Id = new Guid("6330ce51-dc59-4d13-9bc8-a10e7e435cd6"),
+                            Id = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d971b547-1c57-4458-b7b8-a9e3453bb4ab",
-                            DepartmentId = new Guid("ac0b620f-da33-4ea7-8425-f3ad0d9d6789"),
+                            ConcurrencyStamp = "dd09a1c5-4b79-416d-b89b-536b3324960e",
+                            DepartmentId = new Guid("2cd02069-2cb2-4b58-8cc5-58538f4480cb"),
                             Email = "maryc@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Mary",
@@ -202,17 +202,17 @@ namespace ITS.DAL.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MARYC@MAIL.COM",
                             NormalizedUserName = "MARYC",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOayuy//YBZ9/nUNmR82KwZ3RebZX6mPtpepaWcQAOgy7YM6ICXor34+fDbJRS6WTQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEg3Q25V0F//wByPaO4htd2IXvIuR/ZPAIjZ9IoHx7uMLtvpEnbxrNsX+p6LfV6wHw==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "MaryC"
                         },
                         new
                         {
-                            Id = new Guid("527e8d2d-45af-4888-b323-8a13c65682aa"),
+                            Id = new Guid("b87a7720-d1f8-4160-8a3c-6c2922bb8946"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1fdd065c-9b82-4f30-8118-34791afb6a12",
-                            DepartmentId = new Guid("f3021af9-370e-4766-bb64-fed4b1fdff8e"),
+                            ConcurrencyStamp = "bafc0ae5-b031-4fb0-99f1-58f3daf74d75",
+                            DepartmentId = new Guid("0ee540ac-e651-45f5-97c7-a908df086e2d"),
                             Email = "darcya@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Darcy",
@@ -220,17 +220,17 @@ namespace ITS.DAL.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DARCYA@MAIL.COM",
                             NormalizedUserName = "DARCYA",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIti6NA3UxqmCgILlTS+oFf2YeLN9suufXG66qsfSecjoIpW/Dyk5wEaIgpmwJ83UA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJQrDZH+DG8jcc3ARVedaOYmztq3rAvZJ9GmTqOIhLL+aBtYLhMc/5TBrdjvMBxp0g==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "DarcyA"
                         },
                         new
                         {
-                            Id = new Guid("65c01962-0033-452e-87f7-ee2f7db4ac42"),
+                            Id = new Guid("a4f4d3c9-eaf1-4708-9837-e9b4aeb53d7c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f018859-2976-4096-95e5-ac389507659a",
-                            DepartmentId = new Guid("f3021af9-370e-4766-bb64-fed4b1fdff8e"),
+                            ConcurrencyStamp = "98a7c063-d20c-42ed-9336-52676e3aa2b6",
+                            DepartmentId = new Guid("0ee540ac-e651-45f5-97c7-a908df086e2d"),
                             Email = "sandyb@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Sandy",
@@ -238,17 +238,17 @@ namespace ITS.DAL.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SANDYB@MAIL.COM",
                             NormalizedUserName = "SANDYB",
-                            PasswordHash = "AQAAAAIAAYagAAAAEATJLHHpXPMDBJpvG5lZqG9+eclAn1UvV9mZAQ4BrlFeyzOPemCaUOdiaEdfhyl9OQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENUG7A1UyCGRQhmOruYmaRofr8Aj7XmQw4p1obWk661OfUromW8lR29cg/wgRy5Ixw==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "SandyB"
                         },
                         new
                         {
-                            Id = new Guid("3c818c4e-4ad8-4703-af4d-4c8677cf5874"),
+                            Id = new Guid("0480d7eb-c544-4058-8b07-c828104189af"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "228fff85-b91e-4bd9-8a93-e9f45ce529b9",
-                            DepartmentId = new Guid("afc6278b-748f-4546-bcb9-2e1b43f402dd"),
+                            ConcurrencyStamp = "8bb7efe5-a723-4604-9e2d-92b3d40b0b80",
+                            DepartmentId = new Guid("c3f276a1-35a7-4b50-bfbc-373f706d5cd5"),
                             Email = "stanleym@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Stanley",
@@ -256,17 +256,17 @@ namespace ITS.DAL.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "STANLEYM@MAIL.COM",
                             NormalizedUserName = "STANM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFIwQebW2ouQjU8TY2ZSiwmLXj8aUuNt2Sh0R3Bl0t6BQiJWYPhsVvByD7Ln9RPP0Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF2pE5ECgm7TWxN7uExaXLhUWv0lbC4pGqowWBY+J9iRDnfma4NhyeV3nA3RTtxhEw==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "StanM"
                         },
                         new
                         {
-                            Id = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
+                            Id = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f4b8d02b-2224-43e9-9992-77d296d6ed3a",
-                            DepartmentId = new Guid("ac0b620f-da33-4ea7-8425-f3ad0d9d6789"),
+                            ConcurrencyStamp = "4b4dd194-4a6a-459f-8668-c4574e6e3e3d",
+                            DepartmentId = new Guid("2cd02069-2cb2-4b58-8cc5-58538f4480cb"),
                             Email = "admin@mail.com",
                             EmailConfirmed = false,
                             FirstName = "Garry",
@@ -274,7 +274,7 @@ namespace ITS.DAL.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MAIL.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE6F1EfyOu32U3PsU7s+XRMPCo6n9gesWvidGhMC2W7ZY8s4yhiZ24+toayF6ITBvw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEK/ZkT51moQ3lBZpwOy53lnz2uEFtdlUoBcB4zw3hwje1g/WqHP/TyWjiDl27+szoA==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "AdminUser"
@@ -301,32 +301,32 @@ namespace ITS.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c72716ef-fb8e-4355-b653-a4ec6a41cb36"),
+                            Id = new Guid("34afa6e3-d6d1-42b0-afc4-9a9b5edd278b"),
                             Name = "Hardware"
                         },
                         new
                         {
-                            Id = new Guid("fdf9c1f4-58a8-41d2-8687-f1819fec2d8a"),
+                            Id = new Guid("cfaff174-8b18-46f8-bcb3-87dd2ffec7ad"),
                             Name = "Software"
                         },
                         new
                         {
-                            Id = new Guid("7160fdfa-f038-4743-b23f-543b4c1a4786"),
+                            Id = new Guid("9c9d0d44-2ab3-4912-8c04-2f2192ed80e1"),
                             Name = "Network & Access Request"
                         },
                         new
                         {
-                            Id = new Guid("c8716d5b-b764-42fa-8830-5f8d98ec5a65"),
+                            Id = new Guid("fe9fdc3f-7e82-47f8-a432-76ea5bbfd396"),
                             Name = "Security"
                         },
                         new
                         {
-                            Id = new Guid("077afb68-01e2-4ca2-ba80-cb53a34e6904"),
+                            Id = new Guid("c21d907c-a05f-4b7f-b4b2-e989dffb8d2a"),
                             Name = "Facilities"
                         },
                         new
                         {
-                            Id = new Guid("192d6dd7-c8ee-4df0-9d24-acaa766fa556"),
+                            Id = new Guid("98d8e692-4707-475e-b870-92a37f881986"),
                             Name = "HR"
                         });
                 });
@@ -367,83 +367,83 @@ namespace ITS.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1a53f44a-1f1d-41cc-8964-c757943fb084"),
-                            CreatedOn = new DateTime(2025, 5, 24, 15, 41, 50, 896, DateTimeKind.Utc).AddTicks(9238),
-                            CreatorId = new Guid("3c818c4e-4ad8-4703-af4d-4c8677cf5874"),
+                            Id = new Guid("681e27c5-8fdb-49d2-931c-ca0d8f322975"),
+                            CreatedOn = new DateTime(2025, 6, 4, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(2567),
+                            CreatorId = new Guid("0480d7eb-c544-4058-8b07-c828104189af"),
                             Message = "Hello Sandy, we have a Honda Civic and a Toyota 4Runner available. Would you need a large luggage space or will you be travelling light?",
-                            TicketId = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a")
+                            TicketId = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0")
                         },
                         new
                         {
-                            Id = new Guid("93dca21a-5bd6-46a4-8e85-693bc3d18712"),
-                            CreatedOn = new DateTime(2025, 5, 24, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(33),
-                            CreatorId = new Guid("65c01962-0033-452e-87f7-ee2f7db4ac42"),
+                            Id = new Guid("787b1fce-2a40-4090-9a0c-948d0a295237"),
+                            CreatedOn = new DateTime(2025, 6, 4, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3353),
+                            CreatorId = new Guid("a4f4d3c9-eaf1-4708-9837-e9b4aeb53d7c"),
                             Message = "Hello Stan, we will be travelling with a total of 3 carry-on luggages, as well as one large suitcase.",
-                            TicketId = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a")
+                            TicketId = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0")
                         },
                         new
                         {
-                            Id = new Guid("442bf548-2bfc-4e7b-9db4-7c8584c80d4e"),
-                            CreatedOn = new DateTime(2025, 5, 24, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(37),
-                            CreatorId = new Guid("3c818c4e-4ad8-4703-af4d-4c8677cf5874"),
+                            Id = new Guid("738b0d6e-0a9d-49eb-b40a-c1140881de5a"),
+                            CreatedOn = new DateTime(2025, 6, 4, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3356),
+                            CreatorId = new Guid("0480d7eb-c544-4058-8b07-c828104189af"),
                             Message = "Sandy, based on your luggage size I would reccoment you to take the Toyota 4Runner. When are you supposed to leave and return?",
-                            TicketId = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a")
+                            TicketId = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0")
                         },
                         new
                         {
-                            Id = new Guid("b0d1e9f2-6c8d-4b61-8451-2842eaeb7341"),
-                            CreatedOn = new DateTime(2025, 5, 24, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(40),
-                            CreatorId = new Guid("65c01962-0033-452e-87f7-ee2f7db4ac42"),
+                            Id = new Guid("51d38196-9d32-4c8f-a835-e13d920d09c2"),
+                            CreatedOn = new DateTime(2025, 6, 4, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3358),
+                            CreatorId = new Guid("a4f4d3c9-eaf1-4708-9837-e9b4aeb53d7c"),
                             Message = "Stan, we will be leaving in two days and we are supposed to return in a day or so.",
-                            TicketId = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a")
+                            TicketId = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0")
                         },
                         new
                         {
-                            Id = new Guid("20340d4e-ce5a-457b-bb64-7b3dd79543d0"),
-                            CreatedOn = new DateTime(2025, 5, 24, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(55),
-                            CreatorId = new Guid("3c818c4e-4ad8-4703-af4d-4c8677cf5874"),
+                            Id = new Guid("c2e2b02c-fad2-4218-be20-4c4c87a84a1a"),
+                            CreatedOn = new DateTime(2025, 6, 4, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3360),
+                            CreatorId = new Guid("0480d7eb-c544-4058-8b07-c828104189af"),
                             Message = "Okay, Sandy, I will contact you as soon as the car is ready. Will you be needing further instructions for operating the vehicle?",
-                            TicketId = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a")
+                            TicketId = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0")
                         },
                         new
                         {
-                            Id = new Guid("c541d904-d20f-4b36-81fd-60aaf95b6905"),
-                            CreatedOn = new DateTime(2025, 5, 24, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(66),
-                            CreatorId = new Guid("65c01962-0033-452e-87f7-ee2f7db4ac42"),
+                            Id = new Guid("24c61f63-fd5d-4acd-8eaa-1639a53bbf14"),
+                            CreatedOn = new DateTime(2025, 6, 4, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3364),
+                            CreatorId = new Guid("a4f4d3c9-eaf1-4708-9837-e9b4aeb53d7c"),
                             Message = "No, thank you, I have already driven this particular car. Have a great day!",
-                            TicketId = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a")
+                            TicketId = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0")
                         },
                         new
                         {
-                            Id = new Guid("781819af-deb7-4efe-9da3-1d2e30b4b559"),
-                            CreatedOn = new DateTime(2025, 5, 24, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(76),
-                            CreatorId = new Guid("3c818c4e-4ad8-4703-af4d-4c8677cf5874"),
+                            Id = new Guid("8a9a9810-cf14-4952-a885-90f3caaf30a2"),
+                            CreatedOn = new DateTime(2025, 6, 4, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3366),
+                            CreatorId = new Guid("0480d7eb-c544-4058-8b07-c828104189af"),
                             Message = "You're welcome. Don't hesitate to contact me if you have any questions or need more assistance. Good day to you, too!",
-                            TicketId = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a")
+                            TicketId = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0")
                         },
                         new
                         {
-                            Id = new Guid("6de041ad-a28e-4ee2-ab71-dd0c8d1b9566"),
-                            CreatedOn = new DateTime(2025, 5, 14, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(78),
-                            CreatorId = new Guid("527e8d2d-45af-4888-b323-8a13c65682aa"),
+                            Id = new Guid("73432f43-3b18-40cd-b6df-48411eeaed0c"),
+                            CreatedOn = new DateTime(2025, 5, 25, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3374),
+                            CreatorId = new Guid("b87a7720-d1f8-4160-8a3c-6c2922bb8946"),
                             Message = "Hello Mary, I have just received your request. I will be contacting you shortly.",
-                            TicketId = new Guid("87e3cba6-a0cd-4ab3-9b11-306507c6c6cb")
+                            TicketId = new Guid("57579abc-57eb-4594-88a2-cd9d653cbd65")
                         },
                         new
                         {
-                            Id = new Guid("27145fee-a563-48a9-a071-df55f5058a57"),
-                            CreatedOn = new DateTime(2025, 5, 14, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(80),
-                            CreatorId = new Guid("6330ce51-dc59-4d13-9bc8-a10e7e435cd6"),
+                            Id = new Guid("947c5db9-5773-4730-a026-924f67394160"),
+                            CreatedOn = new DateTime(2025, 5, 25, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3444),
+                            CreatorId = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a"),
                             Message = "Hello Darcy, thank you for your prompt response. I will be waiting for your contact.",
-                            TicketId = new Guid("87e3cba6-a0cd-4ab3-9b11-306507c6c6cb")
+                            TicketId = new Guid("57579abc-57eb-4594-88a2-cd9d653cbd65")
                         },
                         new
                         {
-                            Id = new Guid("23eff7e6-1a19-4f8e-b319-19cc0b0ed2d6"),
-                            CreatedOn = new DateTime(2025, 5, 28, 15, 41, 50, 897, DateTimeKind.Utc).AddTicks(83),
-                            CreatorId = new Guid("6330ce51-dc59-4d13-9bc8-a10e7e435cd6"),
+                            Id = new Guid("bbde4056-0b8c-42fa-b6ec-72e27d568096"),
+                            CreatedOn = new DateTime(2025, 6, 8, 17, 24, 23, 431, DateTimeKind.Utc).AddTicks(3447),
+                            CreatorId = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a"),
                             Message = "Hello Sam, please restart your device and wait for further instructions. I will contact you in several minutes.",
-                            TicketId = new Guid("c019231d-b05e-49e0-a8bb-2a85c6355bdf")
+                            TicketId = new Guid("cc9a909d-37f6-4225-8148-9b96264a167b")
                         });
                 });
 
@@ -467,27 +467,27 @@ namespace ITS.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("928c2995-b16b-40c8-b77d-dd18d8525f28"),
+                            Id = new Guid("e84fad18-ed54-47cd-aeaf-4c94b513d8bc"),
                             Name = "Engineering & Development"
                         },
                         new
                         {
-                            Id = new Guid("37a90661-82aa-44a5-b267-079d36832bdb"),
+                            Id = new Guid("cc6a4f78-4c15-41e3-ae61-a6420f6de8cd"),
                             Name = "Quality Assurance"
                         },
                         new
                         {
-                            Id = new Guid("ac0b620f-da33-4ea7-8425-f3ad0d9d6789"),
+                            Id = new Guid("2cd02069-2cb2-4b58-8cc5-58538f4480cb"),
                             Name = "IT & Security"
                         },
                         new
                         {
-                            Id = new Guid("f3021af9-370e-4766-bb64-fed4b1fdff8e"),
+                            Id = new Guid("0ee540ac-e651-45f5-97c7-a908df086e2d"),
                             Name = "Human Resources"
                         },
                         new
                         {
-                            Id = new Guid("afc6278b-748f-4546-bcb9-2e1b43f402dd"),
+                            Id = new Guid("c3f276a1-35a7-4b50-bfbc-373f706d5cd5"),
                             Name = "Facilities"
                         });
                 });
@@ -552,37 +552,37 @@ namespace ITS.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b344f46c-3fb0-4ed7-9510-b90280fb3866"),
-                            AssignedToUserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
-                            CategoryId = new Guid("c72716ef-fb8e-4355-b653-a4ec6a41cb36"),
-                            CreatedOn = new DateTime(2025, 5, 28, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(3714),
-                            CreatorId = new Guid("f2310846-a216-40d2-bb35-fe7492b82718"),
+                            Id = new Guid("0d33367f-02f9-4324-be87-30e5f65be109"),
+                            AssignedToUserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
+                            CategoryId = new Guid("34afa6e3-d6d1-42b0-afc4-9a9b5edd278b"),
+                            CreatedOn = new DateTime(2025, 6, 8, 17, 24, 23, 429, DateTimeKind.Utc).AddTicks(4631),
+                            CreatorId = new Guid("b94e4389-b297-4f9c-8dbd-5ed1d9d0ee94"),
                             Description = "My laptop is not turning on. I need it for work.",
-                            DueDate = new DateTime(2025, 5, 29, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(3973),
+                            DueDate = new DateTime(2025, 6, 9, 17, 24, 23, 429, DateTimeKind.Utc).AddTicks(4888),
                             Priority = 2,
                             Status = 0,
                             Title = "Laptop not working"
                         },
                         new
                         {
-                            Id = new Guid("d7c5e601-71a8-4dfa-9157-302468373179"),
-                            AssignedToUserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
-                            CategoryId = new Guid("c72716ef-fb8e-4355-b653-a4ec6a41cb36"),
-                            CreatedOn = new DateTime(2025, 5, 28, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4956),
-                            CreatorId = new Guid("527e8d2d-45af-4888-b323-8a13c65682aa"),
+                            Id = new Guid("461191ed-d0b0-43e5-982b-426f1b369ba6"),
+                            AssignedToUserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
+                            CategoryId = new Guid("34afa6e3-d6d1-42b0-afc4-9a9b5edd278b"),
+                            CreatedOn = new DateTime(2025, 6, 8, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1220),
+                            CreatorId = new Guid("b87a7720-d1f8-4160-8a3c-6c2922bb8946"),
                             Description = "My printer is not working. I have a presentation in 3 days and I need it.",
-                            DueDate = new DateTime(2025, 5, 30, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4957),
+                            DueDate = new DateTime(2025, 6, 10, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1221),
                             Priority = 1,
                             Status = 0,
                             Title = "Printer not working"
                         },
                         new
                         {
-                            Id = new Guid("c5cf35e2-8ef9-4da3-84b9-98955f3b12b5"),
-                            AssignedToUserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
-                            CategoryId = new Guid("fdf9c1f4-58a8-41d2-8687-f1819fec2d8a"),
-                            CreatedOn = new DateTime(2025, 5, 28, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4967),
-                            CreatorId = new Guid("c69f3217-12e3-45ce-b5f8-84ebf4fcd77f"),
+                            Id = new Guid("a296e1e3-57c0-45b9-8e9d-9332cd6bbf1a"),
+                            AssignedToUserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
+                            CategoryId = new Guid("cfaff174-8b18-46f8-bcb3-87dd2ffec7ad"),
+                            CreatedOn = new DateTime(2025, 6, 8, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1233),
+                            CreatorId = new Guid("98bd95e4-71a2-488a-a56d-12245dd7f291"),
                             Description = "I need to install a new software on my laptop.",
                             Priority = 0,
                             Status = 0,
@@ -590,11 +590,11 @@ namespace ITS.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("05772994-8e9d-4dd9-89ab-3af31525bee9"),
-                            AssignedToUserId = new Guid("6330ce51-dc59-4d13-9bc8-a10e7e435cd6"),
-                            CategoryId = new Guid("7160fdfa-f038-4743-b23f-543b4c1a4786"),
-                            CreatedOn = new DateTime(2025, 5, 28, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4969),
-                            CreatorId = new Guid("f2310846-a216-40d2-bb35-fe7492b82718"),
+                            Id = new Guid("0039715b-ddf1-4aba-8e7b-9dc2eb1afb68"),
+                            AssignedToUserId = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a"),
+                            CategoryId = new Guid("9c9d0d44-2ab3-4912-8c04-2f2192ed80e1"),
+                            CreatedOn = new DateTime(2025, 6, 8, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1236),
+                            CreatorId = new Guid("b94e4389-b297-4f9c-8dbd-5ed1d9d0ee94"),
                             Description = "I am unable to connect to the network.",
                             Priority = 2,
                             Status = 1,
@@ -602,11 +602,11 @@ namespace ITS.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c019231d-b05e-49e0-a8bb-2a85c6355bdf"),
-                            AssignedToUserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
-                            CategoryId = new Guid("7160fdfa-f038-4743-b23f-543b4c1a4786"),
-                            CreatedOn = new DateTime(2025, 5, 28, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4972),
-                            CreatorId = new Guid("f2310846-a216-40d2-bb35-fe7492b82718"),
+                            Id = new Guid("cc9a909d-37f6-4225-8148-9b96264a167b"),
+                            AssignedToUserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
+                            CategoryId = new Guid("9c9d0d44-2ab3-4912-8c04-2f2192ed80e1"),
+                            CreatedOn = new DateTime(2025, 6, 8, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1238),
+                            CreatorId = new Guid("b94e4389-b297-4f9c-8dbd-5ed1d9d0ee94"),
                             Description = "I need access to the new software.",
                             Priority = 1,
                             Status = 0,
@@ -614,11 +614,11 @@ namespace ITS.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8b969b26-8719-45fd-b698-6cb7adc88c27"),
-                            AssignedToUserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
-                            CategoryId = new Guid("c8716d5b-b764-42fa-8830-5f8d98ec5a65"),
-                            CreatedOn = new DateTime(2025, 5, 28, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4980),
-                            CreatorId = new Guid("c69f3217-12e3-45ce-b5f8-84ebf4fcd77f"),
+                            Id = new Guid("4867a566-c6f2-4a77-8222-0daaf53d49a1"),
+                            AssignedToUserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
+                            CategoryId = new Guid("fe9fdc3f-7e82-47f8-a432-76ea5bbfd396"),
+                            CreatedOn = new DateTime(2025, 6, 8, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1243),
+                            CreatorId = new Guid("98bd95e4-71a2-488a-a56d-12245dd7f291"),
                             Description = "I found a security issue in the system.",
                             Priority = 2,
                             Status = 0,
@@ -626,24 +626,24 @@ namespace ITS.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3f68d665-78f1-4913-b86a-14fbc6320e44"),
-                            AssignedToUserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
-                            CategoryId = new Guid("077afb68-01e2-4ca2-ba80-cb53a34e6904"),
-                            CreatedOn = new DateTime(2025, 5, 25, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4983),
-                            CreatorId = new Guid("527e8d2d-45af-4888-b323-8a13c65682aa"),
+                            Id = new Guid("0ca2655c-e434-4e00-a84b-2bff2aa7f765"),
+                            AssignedToUserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
+                            CategoryId = new Guid("c21d907c-a05f-4b7f-b4b2-e989dffb8d2a"),
+                            CreatedOn = new DateTime(2025, 6, 5, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1246),
+                            CreatorId = new Guid("b87a7720-d1f8-4160-8a3c-6c2922bb8946"),
                             Description = "I need a conference room for a small meeting.",
-                            DueDate = new DateTime(2025, 6, 4, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4983),
+                            DueDate = new DateTime(2025, 6, 15, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1246),
                             Priority = 1,
                             Status = 0,
                             Title = "Conference room needed"
                         },
                         new
                         {
-                            Id = new Guid("87e3cba6-a0cd-4ab3-9b11-306507c6c6cb"),
-                            AssignedToUserId = new Guid("527e8d2d-45af-4888-b323-8a13c65682aa"),
-                            CategoryId = new Guid("192d6dd7-c8ee-4df0-9d24-acaa766fa556"),
-                            CreatedOn = new DateTime(2025, 5, 13, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(4986),
-                            CreatorId = new Guid("6330ce51-dc59-4d13-9bc8-a10e7e435cd6"),
+                            Id = new Guid("57579abc-57eb-4594-88a2-cd9d653cbd65"),
+                            AssignedToUserId = new Guid("b87a7720-d1f8-4160-8a3c-6c2922bb8946"),
+                            CategoryId = new Guid("98d8e692-4707-475e-b870-92a37f881986"),
+                            CreatedOn = new DateTime(2025, 5, 24, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1249),
+                            CreatorId = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a"),
                             Description = "I need HR support for a new employee.",
                             Priority = 1,
                             Status = 3,
@@ -651,11 +651,11 @@ namespace ITS.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("662951ec-01fb-4702-b327-c82321b001da"),
-                            AssignedToUserId = new Guid("6330ce51-dc59-4d13-9bc8-a10e7e435cd6"),
-                            CategoryId = new Guid("fdf9c1f4-58a8-41d2-8687-f1819fec2d8a"),
-                            CreatedOn = new DateTime(2025, 5, 18, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(5072),
-                            CreatorId = new Guid("f2310846-a216-40d2-bb35-fe7492b82718"),
+                            Id = new Guid("2e246a75-e482-415d-adb8-b3b7545ad77c"),
+                            AssignedToUserId = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a"),
+                            CategoryId = new Guid("cfaff174-8b18-46f8-bcb3-87dd2ffec7ad"),
+                            CreatedOn = new DateTime(2025, 5, 29, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1251),
+                            CreatorId = new Guid("b94e4389-b297-4f9c-8dbd-5ed1d9d0ee94"),
                             Description = "I need to update the software on my laptop.",
                             Priority = 0,
                             Status = 3,
@@ -663,13 +663,13 @@ namespace ITS.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d9d75702-668e-43da-af16-b1f58ee92f4a"),
-                            AssignedToUserId = new Guid("3c818c4e-4ad8-4703-af4d-4c8677cf5874"),
-                            CategoryId = new Guid("077afb68-01e2-4ca2-ba80-cb53a34e6904"),
-                            CreatedOn = new DateTime(2025, 5, 23, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(5075),
-                            CreatorId = new Guid("65c01962-0033-452e-87f7-ee2f7db4ac42"),
+                            Id = new Guid("b5f59953-c062-4e40-bbde-c5263ad61fa0"),
+                            AssignedToUserId = new Guid("0480d7eb-c544-4058-8b07-c828104189af"),
+                            CategoryId = new Guid("c21d907c-a05f-4b7f-b4b2-e989dffb8d2a"),
+                            CreatedOn = new DateTime(2025, 6, 3, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1269),
+                            CreatorId = new Guid("a4f4d3c9-eaf1-4708-9837-e9b4aeb53d7c"),
                             Description = "I need a company car for a business trip for 3 people.",
-                            DueDate = new DateTime(2025, 5, 25, 15, 41, 50, 895, DateTimeKind.Utc).AddTicks(5076),
+                            DueDate = new DateTime(2025, 6, 5, 17, 24, 23, 430, DateTimeKind.Utc).AddTicks(1270),
                             Priority = 1,
                             Status = 2,
                             Title = "Company car needed"
@@ -729,28 +729,28 @@ namespace ITS.DAL.Migrations
                             Id = 1,
                             ClaimType = "SupportAgent",
                             ClaimValue = "true",
-                            UserId = new Guid("6330ce51-dc59-4d13-9bc8-a10e7e435cd6")
+                            UserId = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a")
                         },
                         new
                         {
                             Id = 2,
                             ClaimType = "SupportAgent",
                             ClaimValue = "true",
-                            UserId = new Guid("3c818c4e-4ad8-4703-af4d-4c8677cf5874")
+                            UserId = new Guid("0480d7eb-c544-4058-8b07-c828104189af")
                         },
                         new
                         {
                             Id = 3,
                             ClaimType = "SupportAgent",
                             ClaimValue = "true",
-                            UserId = new Guid("527e8d2d-45af-4888-b323-8a13c65682aa")
+                            UserId = new Guid("b87a7720-d1f8-4160-8a3c-6c2922bb8946")
                         },
                         new
                         {
                             Id = 4,
                             ClaimType = "SupportAgent",
                             ClaimValue = "true",
-                            UserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3")
+                            UserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885")
                         });
                 });
 
@@ -792,8 +792,38 @@ namespace ITS.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = new Guid("05abc7b7-e554-485f-a419-19ce2945e0e3"),
-                            RoleId = new Guid("22b3a385-dd4e-4d86-836e-2909f1add421")
+                            UserId = new Guid("291f114d-6be7-4af0-b73f-ee8690597885"),
+                            RoleId = new Guid("5f439325-7a78-4d47-8e5f-c58787c10b94")
+                        },
+                        new
+                        {
+                            UserId = new Guid("b94e4389-b297-4f9c-8dbd-5ed1d9d0ee94"),
+                            RoleId = new Guid("d5553e44-17ed-4ce2-808f-8d5f02a4ad18")
+                        },
+                        new
+                        {
+                            UserId = new Guid("98bd95e4-71a2-488a-a56d-12245dd7f291"),
+                            RoleId = new Guid("d5553e44-17ed-4ce2-808f-8d5f02a4ad18")
+                        },
+                        new
+                        {
+                            UserId = new Guid("24ebeca2-8cda-4801-a113-725657e7b47a"),
+                            RoleId = new Guid("d5553e44-17ed-4ce2-808f-8d5f02a4ad18")
+                        },
+                        new
+                        {
+                            UserId = new Guid("b87a7720-d1f8-4160-8a3c-6c2922bb8946"),
+                            RoleId = new Guid("d5553e44-17ed-4ce2-808f-8d5f02a4ad18")
+                        },
+                        new
+                        {
+                            UserId = new Guid("a4f4d3c9-eaf1-4708-9837-e9b4aeb53d7c"),
+                            RoleId = new Guid("d5553e44-17ed-4ce2-808f-8d5f02a4ad18")
+                        },
+                        new
+                        {
+                            UserId = new Guid("0480d7eb-c544-4058-8b07-c828104189af"),
+                            RoleId = new Guid("d5553e44-17ed-4ce2-808f-8d5f02a4ad18")
                         });
                 });
 
