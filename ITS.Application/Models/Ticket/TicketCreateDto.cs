@@ -21,19 +21,21 @@ namespace ITS.Core.Models.Ticket
 		public IEnumerable<Guid> Categories { get; set; } = new List<Guid>();
 
 		[Required(ErrorMessage = RequiredFieldMessage)]
+		[Range(TicketStatusMinValue, TicketStatusMaxValue, ErrorMessage = InvalidStatusMessage)]
 		[Display(Name = "Ticket status")]
 		public int StatusId { get; set; }
 
 		public IEnumerable<int> Statuses { get; set; } = new List<int>();
 
 		[Required(ErrorMessage = RequiredFieldMessage)]
+		[Range(TicketPriorityMinValue, TicketPriorityMaxValue, ErrorMessage = InvalidPriorityMessage)]
 		[Display(Name = "Ticket priority")]
 		public int PriorityId { get; set; }
 
 		public IEnumerable<int> Priorities { get; set; } = new List<int>();
 
-		[Display(Name = "Ticket due date")]
 		[DataType(DataType.Date)]
+		[Display(Name = "Ticket due date")]
 		public DateTime? DueDate { get; set; }
 	}
 }
