@@ -5,6 +5,8 @@ using ITS.DAL.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static ITS.DAL.Constants.AdminConstants;
+using static ITS.DAL.Constants.CustomRolesAndClaims;
 
 namespace ITS.Api.Controllers
 {
@@ -25,7 +27,7 @@ namespace ITS.Api.Controllers
 			_configuration = configuration;
 		}
 
-		[Authorize(Roles = "Administrator")]
+		[Authorize(Roles = AdminRole)]
 		[HttpPost("register")]
 		public async Task<IActionResult> Register(RegisterDto registerDto)
 		{
@@ -54,7 +56,7 @@ namespace ITS.Api.Controllers
 					return BadRequest(identityResult.Errors.Select(e => e.Description));
 				}
 
-				await _userManager.AddToRoleAsync(user, "Employee");
+				await _userManager.AddToRoleAsync(user, EmployeeRole);
 
 				return Ok();
 			}
