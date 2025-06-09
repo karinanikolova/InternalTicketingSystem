@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
+using static ITS.DAL.Constants.CustomRolesAndClaims;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -57,8 +58,8 @@ namespace Microsoft.Extensions.DependencyInjection
 			{
 				options.TokenValidationParameters = new TokenValidationParameters
 				{
-					NameClaimType = "sub",
-					RoleClaimType = "role",
+					NameClaimType = CustomSubjectClaimType,
+					RoleClaimType = CustomRoleClaimType,
 					
 					ValidateIssuer = true,
 					ValidateAudience = true,
@@ -82,8 +83,8 @@ namespace Microsoft.Extensions.DependencyInjection
 							var newIdentity = new ClaimsIdentity(
 								identity.Claims,
 								identity.AuthenticationType,
-								nameType: "sub",
-								roleType: "role"
+								nameType: CustomSubjectClaimType,
+								roleType: CustomRoleClaimType
 							);
 
 							context.Principal = new ClaimsPrincipal(newIdentity);
