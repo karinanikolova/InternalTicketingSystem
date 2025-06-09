@@ -5,7 +5,7 @@ using ITS.DAL.Data.Models;
 using ITS.DAL.Data.Utilities.Contracts;
 using ITS.DAL.Enums;
 using Microsoft.EntityFrameworkCore;
-using static ITS.DAL.Constants.CustomRoles;
+using static ITS.DAL.Constants.AdminConstants;
 
 namespace ITS.Core.Services
 {
@@ -153,6 +153,28 @@ namespace ITS.Core.Services
 			await _repository.AddAsync<Ticket>(ticket);
 			await _repository.SaveChangesAsync();
 		}
+
+		public async Task UpdateTicketAsync(Guid ticketId, TicketUpdateDto ticketUpdateDto)
+		{
+			var ticket = await _repository.GetByIdAsync<Ticket>(ticketId);
+
+			if (ticket != null)
+			{
+				ticket.Title = ticketUpdateDto.Title;
+				ticket.Description = ticketUpdateDto.Description;
+				ticket.CategoryId = ticketUpdateDto.CategoryId;
+				ticket.Status = (Status)ticketUpdateDto.StatusId;
+				ticket.Priority = (Priority)ticketUpdateDto.PriorityId;
+				ticket.DueDate = ticketUpdateDto.DueDate;
+				ticket.AssignedToUserId = ticketUpdateDto.AssignedToUserId;
+			}
+
+			await _repository.SaveChangesAsync();
+		}
+
+		public async Task<bool> DoesTicketExistAsync(Guid ticketId)
+			=> await _repository.AllReadOnly<Ticket>()
+				.AnyAsync(t => t.Id == ticketId);
 
 		public bool DoesStatusExist(int statusId)
 			=> Enum.IsDefined(typeof(Status), statusId);
