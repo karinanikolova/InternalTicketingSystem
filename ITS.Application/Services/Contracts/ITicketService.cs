@@ -10,6 +10,10 @@ namespace ITS.Core.Services.Contracts
 
 		Task CreateTicketAsync(TicketCreateDto ticketFormDto, Guid creatorId, Guid adminUserId);
 
+		Task UpdateTicketAsync(Guid ticketId, TicketUpdateDto ticketUpdateDto);
+
+		Task<bool> DoesTicketExistAsync(Guid ticketId);
+
 		bool DoesStatusExist(int statusId);
 
 		bool DoesPriorityExist(int priorityId);
