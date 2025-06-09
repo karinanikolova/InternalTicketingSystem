@@ -1,5 +1,5 @@
-﻿using static ITS.DAL.Constants.CustomClaims;
-using static ITS.DAL.Constants.CustomRoles;
+﻿using static ITS.DAL.Constants.AdminConstants;
+using static ITS.DAL.Constants.CustomRolesAndClaims;
 
 namespace System.Security.Claims
 {
@@ -7,13 +7,13 @@ namespace System.Security.Claims
 	{
 		public static Guid? UserId(this ClaimsPrincipal user)
 		{
-			var userIdClaim = user.FindFirstValue(ClaimTypes.NameIdentifier) ?? user.FindFirstValue("sub");
+			var userIdClaim = user.FindFirstValue(ClaimTypes.NameIdentifier) ?? user.FindFirstValue(CustomSubjectClaimType);
 
 			return Guid.TryParse(userIdClaim, out Guid result) ? result : null;
 		}
 
 		public static string FindUserRole(this ClaimsPrincipal user)
-			=> user.FindFirstValue(ClaimTypes.Role) ?? user.FindFirstValue("role");
+			=> user.FindFirstValue(ClaimTypes.Role) ?? user.FindFirstValue(CustomRoleClaimType);
 
 		public static bool IsAdmin(this ClaimsPrincipal user)
 			=> user.IsInRole(AdminRole);
