@@ -78,5 +78,38 @@ namespace ITS.Api.Controllers
 
 			return Ok("Ticket created successfully.");
 		}
+
+		[HttpPut("{ticketId:guid}")]
+		public async Task<IActionResult> UpdateTicket(Guid ticketId, [FromBody] TicketUpdateDto ticketDto)
+		{
+			if (await _ticketService.DoesTicketExistAsync(ticketId) == false)
+			{
+				return NotFound($"Ticket with ID {ticketId} does not exist.");
+			}
+
+			if (User.UserId() != ticketDto.CreatorId && User.IsAdmin() == false)
+			{
+				return Unauthorized("You do not have permission to update this ticket.");
+			}
+
+			if (!_ticketService.DoesStatusExist(ticketDto.StatusId))
+			{
+				ModelState.AddModelError(nameof(ticketDto.StatusId), "Ticket status does not exist.");
+			}
+
+			if (!_ticketService.DoesPriorityExist(ticketDto.PriorityId))
+			{
+				ModelState.AddModelError(nameof(ticketDto.PriorityId), "Ticket priority does not exist.");
+			}
+
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+
+			await _ticketService.UpdateTicketAsync(ticketId, ticketDto);
+
+			return Ok("Ticket updated successfully.");
+		}
 	}
 }
