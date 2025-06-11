@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ITS.Core.Validation;
+using System.ComponentModel.DataAnnotations;
 using static ITS.DAL.Constants.DataConstants.Ticket;
 using static ITS.DAL.Constants.MessageConstants;
 
@@ -35,6 +36,7 @@ namespace ITS.Core.Models.Ticket
 		public IEnumerable<int> Priorities { get; set; } = new List<int>();
 
 		[DataType(DataType.Date)]
+		[FutureDate]
 		[Display(Name = "Ticket due date")]
 		public DateTime? DueDate { get; set; }
 	}
