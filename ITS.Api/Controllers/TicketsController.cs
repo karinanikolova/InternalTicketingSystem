@@ -111,5 +111,33 @@ namespace ITS.Api.Controllers
 
 			return Ok("Ticket updated successfully.");
 		}
+
+		[HttpDelete("{ticketId:guid}")]
+		public async Task<IActionResult> DeleteTicket(Guid ticketId)
+		{
+			// To be completed
+			var ticketToDelete = await _ticketService.GetTicketByIdAsync(ticketId);
+
+			if (ticketToDelete == null)
+			{
+				return NotFound($"Ticket with ID {ticketId} does not exist.");
+			}
+
+			if (User.UserId() != ticketToDelete.CreatorId && User.IsAdmin() == false)
+			{
+				return Unauthorized("You do not have permission to delete this ticket.");
+			}
+
+			// Check if the ticket has comments and delete comments if necessary
+			if (ticketToDelete.Comments.Count > 0)
+			{
+				
+			}
+
+			// Implement service method for deleting ticket 
+			//await _ticketService.DeleteTicketAsync(ticketId);
+
+			return Ok("Ticket deleted successfully.");
+		}
 	}
 }
