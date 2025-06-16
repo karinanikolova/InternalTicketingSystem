@@ -17,5 +17,9 @@ namespace ITS.Core.Services.Contracts
 		bool DoesStatusExist(int statusId);
 
 		bool DoesPriorityExist(int priorityId);
+
+		Task DeleteTicketAsync(Guid ticketId);
+
+		Task DeleteCommentsByTicketIdAsync(Guid ticketId);
 	}
 }
