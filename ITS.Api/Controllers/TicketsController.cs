@@ -112,10 +112,10 @@ namespace ITS.Api.Controllers
 			return Ok("Ticket updated successfully.");
 		}
 
+		// Method can be fully checked when implemented adding new comments functionality
 		[HttpDelete("{ticketId:guid}")]
 		public async Task<IActionResult> DeleteTicket(Guid ticketId)
 		{
-			// To be completed
 			var ticketToDelete = await _ticketService.GetTicketByIdAsync(ticketId);
 
 			if (ticketToDelete == null)
@@ -128,14 +128,12 @@ namespace ITS.Api.Controllers
 				return Unauthorized("You do not have permission to delete this ticket.");
 			}
 
-			// Check if the ticket has comments and delete comments if necessary
 			if (ticketToDelete.Comments.Count > 0)
 			{
-				
+				await _ticketService.DeleteCommentsByTicketIdAsync(ticketId);
 			}
 
-			// Implement service method for deleting ticket 
-			//await _ticketService.DeleteTicketAsync(ticketId);
+			await _ticketService.DeleteTicketAsync(ticketId);
 
 			return Ok("Ticket deleted successfully.");
 		}
