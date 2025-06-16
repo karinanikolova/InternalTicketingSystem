@@ -172,6 +172,27 @@ namespace ITS.Core.Services
 			await _repository.SaveChangesAsync();
 		}
 
+		public async Task DeleteTicketAsync(Guid ticketId)
+		{
+			var ticketToDelete = await _repository.GetByIdAsync<Ticket>(ticketId);
+
+			if (ticketToDelete != null)
+			{
+				_repository.Delete<Ticket>(ticketToDelete);
+				await _repository.SaveChangesAsync();
+			}
+		}
+
+		public async Task DeleteCommentsByTicketIdAsync(Guid ticketId)
+		{
+			var commentsToDelete = await _repository.All<Comment>()
+				.Where(c => c.TicketId == ticketId)
+				.ToArrayAsync();
+
+			_repository.DeleteRange<Comment>(commentsToDelete);
+			await _repository.SaveChangesAsync();
+		}
+
 		public async Task<bool> DoesTicketExistAsync(Guid ticketId)
 			=> await _repository.AllReadOnly<Ticket>()
 				.AnyAsync(t => t.Id == ticketId);
