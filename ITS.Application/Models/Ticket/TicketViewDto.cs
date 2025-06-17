@@ -24,6 +24,6 @@ namespace ITS.Core.Models.Ticket
 
 		public Guid AssignedToUserId { get; set; }
 
-		public ICollection<CommentDto> Comments { get; set; } = new List<CommentDto>();
+		public ICollection<CommentViewDto> Comments { get; set; } = new List<CommentViewDto>();
 	}
 }
