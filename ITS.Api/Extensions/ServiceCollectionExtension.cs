@@ -102,6 +102,7 @@ namespace Microsoft.Extensions.DependencyInjection
 		{
 			services.AddScoped<IAuthenticationService, AuthenticationService>();
 			services.AddScoped<ITicketService, TicketService>();
+			services.AddScoped<ICommentService, CommentService>();
 
 			return services;
 		}
