@@ -1,6 +1,6 @@
 ﻿namespace ITS.Core.Models.Comment
 {
-	public class CommentDto
+	public class CommentViewDto
 	{
 		public Guid Id { get; set; }
 		public string Message { get; set; }
