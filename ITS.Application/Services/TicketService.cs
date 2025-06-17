@@ -37,7 +37,7 @@ namespace ITS.Core.Services
 					CreatorId = t.CreatorId,
 					AssignedToUserId = t.AssignedToUserId,
 					Comments = t.Comments.Where(c => c.TicketId == t.Id)
-					.Select(c => new CommentDto()
+					.Select(c => new CommentViewDto()
 					{
 						Id = c.Id,
 						Message = c.Message,
@@ -67,7 +67,7 @@ namespace ITS.Core.Services
 						CreatorId = t.CreatorId,
 						AssignedToUserId = t.AssignedToUserId,
 						Comments = t.Comments.Where(c => c.TicketId == t.Id)
-						.Select(c => new CommentDto()
+						.Select(c => new CommentViewDto()
 						{
 							Id = c.Id,
 							Message = c.Message,
@@ -95,7 +95,7 @@ namespace ITS.Core.Services
 						CreatorId = t.CreatorId,
 						AssignedToUserId = t.AssignedToUserId,
 						Comments = t.Comments.Where(c => c.TicketId == t.Id)
-						.Select(c => new CommentDto()
+						.Select(c => new CommentViewDto()
 						{
 							Id = c.Id,
 							Message = c.Message,
@@ -124,7 +124,7 @@ namespace ITS.Core.Services
 						CreatorId = t.CreatorId,
 						AssignedToUserId = t.AssignedToUserId,
 						Comments = t.Comments.Where(c => c.TicketId == t.Id)
-						.Select(c => new CommentDto()
+						.Select(c => new CommentViewDto()
 						{
 							Id = c.Id,
 							Message = c.Message,
