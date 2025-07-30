@@ -14,6 +14,8 @@ namespace ITS.Core.Services.Contracts
 
 		Task<bool> DoesTicketExistAsync(Guid ticketId);
 
+		Task<bool> DoesCategoryExist(Guid categoryId);
+
 		bool DoesStatusExist(int statusId);
 
 		bool DoesPriorityExist(int priorityId);
