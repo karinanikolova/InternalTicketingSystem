@@ -202,5 +202,9 @@ namespace ITS.Core.Services
 
 		public bool DoesPriorityExist(int priorityId)
 			=> Enum.IsDefined(typeof(Priority), priorityId);
+
+		public async Task<bool> DoesCategoryExist(Guid categoryId)
+			=> await _repository.AllReadOnly<Category>()
+				.AnyAsync(c => c.Id == categoryId);
 	}
 }
