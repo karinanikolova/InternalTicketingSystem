@@ -51,6 +51,11 @@ namespace ITS.Api.Controllers
 		[HttpPost]
 		public async Task<IActionResult> CreateTicket([FromBody] TicketCreateDto ticketDto)
 		{
+			if (!await _ticketService.DoesCategoryExist(ticketDto.CategoryId))
+			{
+				ModelState.AddModelError(nameof(ticketDto.CategoryId), "Ticket category does not exist.");
+			}
+
 			if (!_ticketService.DoesStatusExist(ticketDto.StatusId))
 			{
 				ModelState.AddModelError(nameof(ticketDto.StatusId), "Ticket status does not exist.");
@@ -69,7 +74,7 @@ namespace ITS.Api.Controllers
 			var userId = User.UserId();
 			var adminUserId = await _authService.GetAdminIdAsync();
 
-			if (userId == null)
+			if (userId == null) // Is this validation necessary?
 			{
 				return Unauthorized("User is not authenticated or does not have the required permissions.");
 			}
@@ -112,7 +117,6 @@ namespace ITS.Api.Controllers
 			return Ok("Ticket updated successfully.");
 		}
 
-		// Method can be fully checked when implemented adding new comments functionality
 		[HttpDelete("{ticketId:guid}")]
 		public async Task<IActionResult> DeleteTicket(Guid ticketId)
 		{
